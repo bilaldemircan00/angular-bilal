@@ -1,0 +1,13 @@
+.logo{
+    width: 200px;
+    height:100;
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+
+head{
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-color{
+    background-color: linear-gradient(#dE685E, #EE786E);
+}

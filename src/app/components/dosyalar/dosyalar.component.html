@@ -1,0 +1,28 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h4>Dosya Yükle</h4>
+      <input type="file" (change)="DosyaSec($event)">
+      <button class="btn btn-success" (click)="DosyaYukle()">Yükle</button>
+      <h4>Dosya Listele</h4>
+      <table class="table table-hover">
+        <thead>
+          <th>Dosya Adı</th>
+          <th>Tarih</th>
+          <th>Sil</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let dosya of dosyalar">
+            <td>
+              <img class="dosyalar-img" [src]='dosya.url' />
+              <a href=" {{dosya.url}}" target="_blank"> {{dosya.adi}}</a>
+            </td>
+            <td> {{dosya.tarih |date:'dd.MM.yyyy HH:mm:ss'}}</td>
+            <td><button class="btn btn-danger" (click)="DosyaSil(dosya)">Sil</button></td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</div>

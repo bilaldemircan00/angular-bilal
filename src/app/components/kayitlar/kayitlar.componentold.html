@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <div class="row">
+    <div id="kategori" class="col-md-4">
+      <div class="mb-3" style="width: 100%;" >
+      <img src="assets/profil.jpg"  style="width:40%; border-radius: 100%; margin-left: 30%;" alt="">
+      </div>
+      
+      <!---->
+      <button class="btn btn-outline-dark" (click)="KayitListele()" >Genel</button>
+      <button class="btn btn-outline-dark" (click)="SporListele()" >Spor</button>
+      <button class="btn btn-outline-dark" (click)="TeknolojiListele()" >Teknoloji</button>
+      <button class="btn btn-outline-dark" (click)="MagazinListele()" >Magazin</button>
+      <button class="btn btn-outline-dark" (click)="SosyalMedyaListele()" >Sosyal Medya</button>
+    </div>
+    <div class="col-md-8">
+      Merhaba <b>{{adsoyad}}</b>
+      <br>
+      <button class="btn btn-outline-dark" [routerLink]="['/kayitekle']">Kayıt Ekle</button>
+      <div class="card mt-3" *ngFor="let kayit of kayitlar.slice().reverse()">
+        <div class="card-header">
+          <h4>{{kayit.baslik}}</h4>
+          <div style="float: right;">
+            <button class="btn btn-outline-dark btn-sm" [routerLink]="['/kayitdetay',kayit.key]">Detay</button>
+            <button class="btn btn-outline-dark btn-sm ml-3" [routerLink]="['/kayitduzenle',kayit.key]"
+              *ngIf="uid==kayit.uid">Düzenle</button>
+            <button class="btn btn-dark btn-sm ml-3" [routerLink]="['/kayitsil',kayit.key]"
+              *ngIf="uid==kayit.uid">Sil</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div [innerHTML]="kayit.icerik"></div>
+        </div>
+        <div class="card-footer">
+          <b>Eklenme Tarihi :</b>{{kayit.kayTarih | date:'dd.MM.yyyy HH:mm:ss'}} <br>
+          <b>Düzenlenme Tarihi :</b>{{kayit.duzTarih | date:'dd.MM.yyyy HH:mm:ss'}} <br>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

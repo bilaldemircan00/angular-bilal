@@ -1,0 +1,65 @@
+
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-outline-dark" [routerLink]="['/kayitlar']">Geri Dön</button>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+  
+        <div class="card mt-3">
+          <div class="card-header">
+            <h4>{{secKayit.baslik}}</h4>
+          </div>
+          <div class="card-body">
+            <div [innerHTML]="secKayit.icerik"></div>
+          </div>
+          <div class="card-footer">
+            <button (click)="Like()" class="btn btn-primary my-2">Like <b> {{secKayit.like}}</b></button>
+            <button (click)="DisLike()" class="btn btn-danger m-2">Dislike <b> {{secKayit.dislike}}</b></button><br>
+            <b>Eklenme Tarihi :</b>{{secKayit.kayTarih | date:'dd.MM.yyyy HH:mm:ss'}} <br>
+            <b>Düzenlenme Tarihi :</b>{{secKayit.duzTarih | date:'dd.MM.yyyy HH:mm:ss'}} <br>
+          </div>
+        </div>
+  
+      </div>
+    </div>
+    <form #frm="ngForm" (ngSubmit)="YorumYap()">
+    <div class="mt-3">
+  
+      <div class="row">
+        <div class="col-9">
+          <input style="width: 100%;" class="form-control" type="text" name="icerik" id="" cols="30" rows="10"
+            [(ngModel)]="secYorum.icerik" placeholder="Yorumunuz">
+        </div>
+        <div style="display: flex; justify-content: center;align-items: center;" class="col-3">
+          <button class="btn btn-outline-success">Yorum Yap</button>
+        </div>
+      </div>
+    </div>
+    </form>
+          <div class="card mt-3"  style="width: 100%;">
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%;" class="card-header">
+              <b style="text-align: center;">YORUMLAR</b> 
+            </div>
+            <ul class="list-group list-group-flush p-4">
+              <li *ngFor="let yorum of yorumlar" class="row">
+                <div class="col-1">
+                  <img style="width: 60px; height: 60px;margin-left: calc((100% - 60px) / 2);border-radius: 50%;" src="assets/profil.jpg" alt="">
+                </div>
+                <div class="col-2" style="text-align:center; width: 100%; line-height: 76px;"><b>{{yorum.user}}</b></div>
+                <div class="col-7" style="max-width: 100%; line-height: 76px;overflow: hidden;">{{yorum.icerik}}</div>
+                <div class="col-2"><button  style="line-height: 36px; width: 40%;" class="btn btn-outline-danger" (click)="YorumSil(yorum.key)">Sil</button></div>
+              </li>
+            </ul>
+          </div>
+  
+          <!--
+    <div class="row">
+      <div class="card mt-3" *ngFor="let yorum of yorumlar">
+        <p>{{yorum.user}} : {{yorum.icerik}}</p>
+      </div>
+    </div>
+    -->
+  </div>

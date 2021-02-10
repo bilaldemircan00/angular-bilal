@@ -1,0 +1,89 @@
+
+<header>
+  <div class="header-color">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style=" background: linear-gradient(#dE685E, #EE786E);">
+     <div class="col-6">
+      <a class="navbar-brand" style="text-align: center;" href="/kayitlar"> 
+        <img src="assets/logo.png" class="logo ml-5" alt="">
+      </a>
+     </div>
+        <div class="col-6">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+              <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                  <a class="nav-link" *ngIf="!fbServis.OturumKontrol()" [routerLink]="['/login']">Giriş Yap <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" *ngIf="!fbServis.OturumKontrol()" [routerLink]="['/register']">Kaydol <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="/login"  style="float:right" (click)="OturumKapat()"
+                *ngIf="fbServis.OturumKontrol()">Oturumu
+                Kapat</a>
+                </li>
+                </ul>
+                
+                
+            </form>
+            
+          </div>
+        </div>
+        
+        
+        
+      </nav>
+    </div>
+</header>
+
+
+<router-outlet>
+
+
+</router-outlet>
+<footer class="bg-light text-center text-lg-start mt-5">
+  
+  <div class="container p-4">
+    
+    <div class="row">
+      
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Biz Kimiz</h5>
+
+        <p>
+          2020 yılında "En yeni iletişim ve bilgisayar teknolojilerini kullanarak müşterilerine dünya standartlarında çözümler sunmak" ilkesiyle yola çıkan bilaldemircan.ml, geçen 16 yıllık süreçte Dünya ve Türkiye’ye, en büyük domain ve hosting firmalarından biri olmayı başarmıştır.<br>2019 yılında alan adları standartlarını belirleyen ve denetleyen tek otorite ICANN'e akredite olan bilaldemircan.ml, 2019 yılından beri Türkiye'nin en büyük 500 bilişim şirketi arasında yer almakta ve kurulduğu günden buyana 1 milyonun üzerinde üye kaydı ve 200 bininin üzerinde forum yapmıştır.
+        </p>
+      </div>
+      
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0" style="display: flex;justify-content: center;align-items: center;">
+       
+        <ul class="list-unstyled mb-0">
+          <li>
+            <h5 class="text-uppercase">İletişim</h5>
+          </li>
+          <li>
+            <a  class="text-dark">Bilal Demircan</a>
+          </li>
+          <li>
+            <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new" class="text-dark">bilaldemircan00@gmail.com</a>
+          </li>
+          <li>
+            <a href="https://wa.me/1XXXXXXXXXX?text=Merhaba." class="text-dark">Whatsapp İletişim</a>
+          </li>
+        </ul>
+      </div>
+      
+      
+    </div>
+  
+  </div>
+ 
+  <div class="text-center p-3" style=" background: linear-gradient(#dE685E, #EE786E);">
+   © 2020 Tüm hakları saklıdır.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+    <a class="text-dark" routerLink="www.bilaldemircan.ml" target="_blank" >www.bilaldemircan.ml</a>
+  </div>
+  
+</footer>
+  
